@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  IgnorableNamespaces="uap mp desktop rescap">
+
+  <Identity
+    Name="df04311d-95a2-460c-9c40-df72b3a9561c"
+    Publisher="CN=Tommy_WE1914"
+    Version="1.0.3.0" />
+
+  <Properties>
+    <DisplayName>WapProj_HotTab</DisplayName>
+    <PublisherDisplayName>WE1914</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+				<uap:VisualElements>
+						DisplayName="WapProj_HotTab"
+						Description="WapProj_HotTab"
+						BackgroundColor="transparent"
+						<uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png"  ShortName="HotTab" Square71x71Logo="Images\Square71x71Logo.png" Square310x310Logo="Images\Square310x310Logo.png">
+								<uap:ShowNameOnTiles>
+										<uap:ShowOn Tile="square310x310Logo"/>
+								</uap:ShowNameOnTiles>
+						</uap:DefaultTile >
+						<uap:SplashScreen Image="Images\SplashScreen.png" />
+				</uap:VisualElements>
+				<Extensions>
+						<uap:Extension Category="windows.appService">
+								<uap:AppService Name="SampleInteropService" />
+						</uap:Extension>
+						<!-- <desktop:Extension Category="windows.fullTrustProcess" Executable="ConsoleApp1\ConsoleApp1.exe" /> -->
+						<desktop:Extension Category="windows.fullTrustProcess" Executable="CollectDataAP\CollectDataAP.exe" />
+
+				</Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>
